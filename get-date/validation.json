@@ -1,0 +1,16 @@
+{
+  "checked_files": 12651,
+  "kinds": {
+    "document": 4650,
+    "html": 6114,
+    "catalog": 1717,
+    "ancillary_image": 118,
+    "ancillary_media": 52
+  },
+  "issues": [
+    {
+      "path": "raw-data/lrhmaterials/materials__729b341fa1.php",
+      "issue": "'utf-8' codec can't decode byte 0x9b in position 1: invalid start byte"
+    }
+  ]
+}

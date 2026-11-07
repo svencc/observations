@@ -1,0 +1,6 @@
+[
+  {
+    "url": "https://disk.yandex.ru/d/r9QenImC9cElig",
+    "issue": "429 Client Error: TOO MANY REQUESTS for url: https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key=https%3A%2F%2Fdisk.yandex.ru%2Fd%2Fr9QenImC9cElig"
+  }
+]

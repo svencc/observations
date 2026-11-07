@@ -1,0 +1,9 @@
+{
+  "sptv-drive": {
+    "status": "blocked",
+    "reason": "Google returned HTTP 403 with an HTML 'Sorry' page after successful anonymous downloads. The Drive transfer process was stopped; the remaining inventory was not falsely marked as downloaded or as individually attempted.",
+    "next_step": "After a cooldown, inspect a public folder in a normal browser and determine whether a browser challenge, download quota or account permission is required. No login requirement has been confirmed by this response.",
+    "inventory": "raw-data/sptv-drive/_provenance/drive-inventory.json",
+    "extra_inventory": "raw-data/sptv-drive/_provenance/extra-drive-inventory.json"
+  }
+}

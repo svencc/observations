@@ -1,0 +1,222 @@
+[
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/1eHp5-kGvlKcxoexTYfVxM4Tpn1b91Z8b",
+    "http_status": 404,
+    "final_url": "https://drive.google.com/drive/folders/1eHp5-kGvlKcxoexTYfVxM4Tpn1b91Z8b",
+    "bytes": 1691,
+    "title": [
+      "Error 404 (Nicht gefunden)!!1"
+    ],
+    "drive_data": false,
+    "folder_ids": []
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/177phhn-v4plO4l4CZhqDN9aYDTZ8zqGK",
+    "http_status": 404,
+    "final_url": "https://drive.google.com/drive/folders/177phhn-v4plO4l4CZhqDN9aYDTZ8zqGK",
+    "bytes": 1691,
+    "title": [
+      "Error 404 (Nicht gefunden)!!1"
+    ],
+    "drive_data": false,
+    "folder_ids": []
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/1iq7JRakpIoWgTQqMrhQ58BlY0IsWJ0us",
+    "http_status": 404,
+    "final_url": "https://drive.google.com/drive/folders/1iq7JRakpIoWgTQqMrhQ58BlY0IsWJ0us",
+    "bytes": 1691,
+    "title": [
+      "Error 404 (Nicht gefunden)!!1"
+    ],
+    "drive_data": false,
+    "folder_ids": []
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/1Aq47vimFD3ccFHibKi_qzreqrz3R9DEQ",
+    "http_status": 404,
+    "final_url": "https://drive.google.com/drive/folders/1Aq47vimFD3ccFHibKi_qzreqrz3R9DEQ",
+    "bytes": 1691,
+    "title": [
+      "Error 404 (Nicht gefunden)!!1"
+    ],
+    "drive_data": false,
+    "folder_ids": []
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/14xPwyh0Hj1ZmB0B_RM4onuHpEeaF1vJy",
+    "http_status": 200,
+    "final_url": "https://drive.google.com/drive/folders/14xPwyh0Hj1ZmB0B_RM4onuHpEeaF1vJy",
+    "bytes": 515450,
+    "title": [
+      "Journals and Magazines – Google Drive"
+    ],
+    "drive_data": true,
+    "folder_ids": [
+      "14xPwyh0Hj1ZmB0B_RM4onuHpEeaF1vJy"
+    ]
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/1Wf_dfQfcXgMPGn4Ntq-H_hXTasou1edh",
+    "http_status": 404,
+    "final_url": "https://drive.google.com/drive/folders/1Wf_dfQfcXgMPGn4Ntq-H_hXTasou1edh",
+    "bytes": 1691,
+    "title": [
+      "Error 404 (Nicht gefunden)!!1"
+    ],
+    "drive_data": false,
+    "folder_ids": []
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/1XcS3VRjeqDAK1t8T9-UVBn1tciSK9d5L",
+    "http_status": 404,
+    "final_url": "https://drive.google.com/drive/folders/1XcS3VRjeqDAK1t8T9-UVBn1tciSK9d5L",
+    "bytes": 1691,
+    "title": [
+      "Error 404 (Nicht gefunden)!!1"
+    ],
+    "drive_data": false,
+    "folder_ids": []
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/1b8rwTFA1f0_kpZKG1ivUDHZXLUpj6z4v",
+    "http_status": 200,
+    "final_url": "https://drive.google.com/drive/folders/1b8rwTFA1f0_kpZKG1ivUDHZXLUpj6z4v",
+    "bytes": 321191,
+    "title": [
+      "Scientology Information Archive – Google Drive"
+    ],
+    "drive_data": true,
+    "folder_ids": [
+      "1b8rwTFA1f0_kpZKG1ivUDHZXLUpj6z4v"
+    ]
+  },
+  {
+    "source": "sptv-drive",
+    "url": "https://drive.google.com/drive/folders/1NOjZ6dZ0MZ2lGO_7N_xwLSNDWQ1hA8zy",
+    "http_status": 404,
+    "final_url": "https://drive.google.com/drive/folders/1NOjZ6dZ0MZ2lGO_7N_xwLSNDWQ1hA8zy",
+    "bytes": 1691,
+    "title": [
+      "Error 404 (Nicht gefunden)!!1"
+    ],
+    "drive_data": false,
+    "folder_ids": []
+  },
+  {
+    "source": "saentowiki",
+    "url": "https://cloud.mail.ru/public/5649/JAgSbzq1X",
+    "http_status": 200,
+    "final_url": "https://cloud.mail.ru/public/5649/JAgSbzq1X",
+    "bytes": 808550,
+    "title": [
+      "Саентология-архив-02-2024 / Облако Mail"
+    ],
+    "hints": [
+      "\",\"uri_full\":\"https://cloud.mail.ru/public/5649/JAgSbzq1X\",\"weblink\":\"5649/JAgSbzq1X\",\"editor_mode\":\"view\"},\"dispatcher\":{\"auth\":{\"count\":\"500\",\"url\":\"https://swa.mail.ru/cgi-bi",
+      ",\"url\":\"http://cld-streamer1.q:5400/\",\"ip\":\"10.161.142.4\"},\"weblink\":{\"count\":\"50\",\"url\":\"https://thumb.cloud.mail.ru/weblink/\"},\"weblink_cld\":{\"count\":\"50\",\"url\":\"https://clocl",
+      "o59.cloud.mail.ru/public/\"},\"weblink_get\":{\"count\":\"1\",\"url\":\"https://cloclo59.cloud.mail.ru/public/F3B2XVL4QwqPZqLLrJt/g/no\"},\"weblink_thumbnails",
+      "\":{\"count\":\"50\",\"url\":\"https://thumb.cloud.mail.ru/weblink/thumb/\"},\"weblink_video\":{\"count\":\"50\",\"url\":\"https://cloclo52.cloud.mail.ru/videowl/\"},\"weblink_video_token\"",
+      "\"50\",\"url\":\"https://cloclo50.cloud.mail.ru/videowl/view/\"},\"weblink_view\":{\"count\":\"50\",\"url\":\"https://cloclo55.cloud.mail.ru/weblink/view/\"}},\"storages\":{\"home\":{\"id\":\"home\",\"t",
+      "time-desc\",\"mtime-asc\",\"size-desc\",\"size-asc\"],\"o_v\":48334,\"tokens\":{\"csrf\":\"\"},\"user\":{\"newbie\":false,\"login\":\"\",\"domain\":\"\",\"locked\":false,\"banned\":false,\"cloudflags\":{\"EXIST",
+      "{\"folders\":1,\"files\":0},\"name\":\"Саентология-архив-02-2024\",\"weblink\":\"5649/JAgSbzq1X\",\"size\":395654020,\"rev\":518,\"kind\":\"folder\",\"type\":\"folder\",\"public\":{\"type\":\"folder\",\"name\"",
+      "\":[{\"count\":{\"folders\":1,\"files\":0},\"name\":\"Лагерь саенто\",\"weblink\":\"5649/JAgSbzq1X/Лагерь саенто\",\"size\":395654020,\"rev\":170621,\"kind\":\"folder\",\"type\":\"folder\"}]},\"serverSideD",
+      "\"50\",\"url\":\"https://cloclo50.cloud.mail.ru/videowl/view/\"},\"weblink_view\":{\"count\":\"50\",\"url\":\"https://cloclo55.cloud.mail.ru/weblink/view/\"}},\"FEATURES\":{\"enabled\":[\"ab-autodel",
+      "ages\",\"viewer-menu-storages\",\"vigbo-links\",\"vigbo-tariffs\",\"weblink-list-file-sharing\",\"webview-buy-frame\",\"white-editor-header\",\"you-shared-alldocs-category-enabled\"],\"configs\"",
+      "B_1y_vigbo_discount_force_trial\",\"W4TB_1y_vigbo_discount\"],\"weblink-list-file-sharing\":true,\"webview-buy-frame\":true,\"white-editor-header\":true,\"you-shared-alldocs-category-enab",
+      "ia-folder\",\"vigbo-print-enable-root-album\",\"vigbo-tariffs\",\"weblink-disabled-block-by-default\",\"weblink-list-file-sharing\",\"webview-buy-frame\",\"white-editor-header\",\"wssa-analyt"
+    ]
+  },
+  {
+    "source": "galac-patra",
+    "url": "https://cloud.mail.ru/public/DCch/aSerUyxNH",
+    "http_status": 200,
+    "final_url": "https://cloud.mail.ru/public/DCch/aSerUyxNH",
+    "bytes": 814125,
+    "title": [
+      "_____All Scientology torrents!!!.zip / Облако Mail"
+    ],
+    "hints": [
+      "\",\"uri_full\":\"https://cloud.mail.ru/public/DCch/aSerUyxNH\",\"weblink\":\"DCch/aSerUyxNH\",\"editor_mode\":\"view\"},\"dispatcher\":{\"auth\":{\"count\":\"500\",\"url\":\"https://swa.mail.ru/cgi-bi",
+      "url\":\"http://cld-streamer17.q:5400/\",\"ip\":\"10.161.93.164\"},\"weblink\":{\"count\":\"50\",\"url\":\"https://thumb.cloud.mail.ru/weblink/\"},\"weblink_cld\":{\"count\":\"50\",\"url\":\"https://clocl",
+      "o56.cloud.mail.ru/public/\"},\"weblink_get\":{\"count\":\"1\",\"url\":\"https://cloclo56.cloud.mail.ru/public/F3B2XVL4QwqPZqLLrJt/g/no\"},\"weblink_thumbnails",
+      "\":{\"count\":\"50\",\"url\":\"https://thumb.cloud.mail.ru/weblink/thumb/\"},\"weblink_video\":{\"count\":\"50\",\"url\":\"https://cloclo66.cloud.mail.ru/videowl/\"},\"weblink_video_token\"",
+      "\"50\",\"url\":\"https://cloclo50.cloud.mail.ru/videowl/view/\"},\"weblink_view\":{\"count\":\"50\",\"url\":\"https://cloclo57.cloud.mail.ru/weblink/view/\"}},\"storages\":{\"home\":{\"id\":\"home\",\"t",
+      "time-desc\",\"mtime-asc\",\"size-desc\",\"size-asc\"],\"o_v\":48334,\"tokens\":{\"csrf\":\"\"},\"user\":{\"newbie\":false,\"login\":\"\",\"domain\":\"\",\"locked\":false,\"banned\":false,\"cloudflags\":{\"EXIST",
+      "ideFolders\":{\"name\":\"_____All Scientology torrents!!!.zip\",\"weblink\":\"DCch/aSerUyxNH\",\"size\":3147099,\"mtime\":1543056277,\"hash\":\"2243DF5F5DF622F8A47796A68DD5C100EA791037\",\"kind\":",
+      "\"50\",\"url\":\"https://cloclo50.cloud.mail.ru/videowl/view/\"},\"weblink_view\":{\"count\":\"50\",\"url\":\"https://cloclo57.cloud.mail.ru/weblink/view/\"}},\"FEATURES\":{\"enabled\":[\"ab-autodel",
+      "ages\",\"viewer-menu-storages\",\"vigbo-links\",\"vigbo-tariffs\",\"weblink-list-file-sharing\",\"webview-buy-frame\",\"white-editor-header\",\"you-shared-alldocs-category-enabled\"],\"configs\"",
+      "B_1y_vigbo_discount_force_trial\",\"W4TB_1y_vigbo_discount\"],\"weblink-list-file-sharing\":true,\"webview-buy-frame\":true,\"white-editor-header\":true,\"you-shared-alldocs-category-enab",
+      "ia-folder\",\"vigbo-print-enable-root-album\",\"vigbo-tariffs\",\"weblink-disabled-block-by-default\",\"weblink-list-file-sharing\",\"webview-buy-frame\",\"white-editor-header\",\"wssa-analyt"
+    ]
+  },
+  {
+    "source": "galac-patra",
+    "url": "https://disk.yandex.ru/d/r9QenImC9cElig",
+    "http_status": 200,
+    "final_url": "https://disk.yandex.ru/d/r9QenImC9cElig",
+    "bytes": 75261,
+    "title": [
+      "_____All Scientology torrents!!!.zip — Яндекс Диск"
+    ],
+    "hints": []
+  },
+  {
+    "source": "sciento",
+    "url": "https://sciento.org/login?next=%2Fsearch%2F",
+    "http_status": 200,
+    "final_url": "https://sciento.org/login?next=%2Fsearch%2F",
+    "bytes": 30970,
+    "title": [
+      "Библиотека — Вход"
+    ]
+  },
+  {
+    "source": "esmb",
+    "url": "https://forum.exscn.net/threads/the-works-of-captain-bill-robertson-cbr-%E2%80%94-excalibur-phoenix-etc.23352/",
+    "http_status": 200,
+    "final_url": "https://forum.exscn.net/threads/the-works-of-captain-bill-robertson-cbr-%E2%80%94-excalibur-phoenix-etc.23352/",
+    "bytes": 914258,
+    "title": [
+      "The Works of Captain Bill Robertson (CBR) — Excalibur, Phoenix etc. | Ex Scientologist Message Board"
+    ]
+  },
+  {
+    "source": "aogp",
+    "url": "https://www.ao-gp.org/free-scientology-books/",
+    "http_status": 404,
+    "final_url": "https://www.ao-gp.org/free-scientology-books",
+    "bytes": 49931,
+    "title": [
+      "Independent Scientology Auditing &amp; Training — AOGP International"
+    ]
+  },
+  {
+    "source": "ronsorg",
+    "url": "https://www.ronsorg.org/",
+    "http_status": 200,
+    "final_url": "https://ronsorg.org/",
+    "bytes": 68890,
+    "title": [
+      "Ron&#039;s Org"
+    ]
+  },
+  {
+    "source": "lrhmaterials",
+    "url": "https://lrhmaterials.com/",
+    "http_status": 200,
+    "final_url": "https://www.lrhmaterials.com/",
+    "bytes": 10984,
+    "title": [
+      "\n\tLRH Materials - Home page\n"
+    ]
+  }
+]

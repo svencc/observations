@@ -1,0 +1,22 @@
+[
+  {
+    "source": "scientolipedia",
+    "url": "magnet:?xt=urn:btih:0b8272f4830838212c24049fc88ea812ffe0a6a6",
+    "metadata": false,
+    "peers": 0,
+    "seeds": 0,
+    "progress": 0.0,
+    "downloaded": 0,
+    "error": null
+  },
+  {
+    "source": "scientolipedia",
+    "url": "magnet:?xt=urn:btih:1D6AE72A795AF57DD28C6537A95E37D6ADB2F054",
+    "metadata": true,
+    "peers": 0,
+    "seeds": 0,
+    "progress": 1.0,
+    "downloaded": 37584885,
+    "error": null
+  }
+]

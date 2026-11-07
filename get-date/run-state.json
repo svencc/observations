@@ -1,0 +1,22 @@
+{
+  "state": "running",
+  "updated_at": "2026-11-07T19:22:58.223254+00:00",
+  "supervisor_pid": 33054,
+  "tasks": [
+    {
+      "name": "LRHmaterials-und-Ergaenzungen",
+      "pid": 26591,
+      "state": "running"
+    },
+    {
+      "name": "Drive-Gesamtinventar",
+      "pid": 32917,
+      "state": "exited"
+    }
+  ],
+  "drive_coverage": {
+    "inventoried_files": 20436,
+    "files_attempted": 990,
+    "not_yet_attempted": 19446
+  }
+}

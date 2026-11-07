@@ -1,0 +1,29 @@
+{
+  "folder_url": "https://drive.google.com/drive/folders/1_WEnwyu_yXzkcLROwvtrYiQV5bL8t3v8",
+  "results": [
+    {
+      "http_status": 403,
+      "files": 0,
+      "has_next_page": false,
+      "reason": "Google Drive API has not been used in project 644136399280 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/drive.googleapis.com/overview?project=644136399280 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+    },
+    {
+      "http_status": 400,
+      "files": 0,
+      "has_next_page": false,
+      "reason": "App 695801166208 is configured for first-party authentication, but used NONE."
+    },
+    {
+      "http_status": 403,
+      "files": 0,
+      "has_next_page": false,
+      "reason": "Requests to this API drive method google.apps.drive.v3.DriveFiles.List are blocked."
+    },
+    {
+      "http_status": 200,
+      "files": 226,
+      "has_next_page": false,
+      "reason": null
+    }
+  ]
+}
