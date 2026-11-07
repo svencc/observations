@@ -1,12 +1,12 @@
 # Downloadprotokoll
 
-Aktualisiert: 2026-11-07T19:22:58.392174+00:00.
+Aktualisiert: 2026-11-07T19:23:28.791225+00:00.
 
 Statuswerte: **successful** = lokal gespeichert und geprüft; **failed** = Abruf oder Formatprüfung fehlgeschlagen; **partial** = nur teilweise übertragen. Eine erfolgreiche Katalog-/HTML-Sicherung ist kein Beleg für heruntergeladene verlinkte PDFs oder komplette Archivpakete.
 
 Die Datei wird aus den tatsächlichen Ergebnissen erstellt. Solange `run-state.json` laufende Prozesse ausweist, ist sie ein Zwischenstand. Zugangsthemen stehen in [privat-data.md](privat-data.md).
 
-Erfolgreich protokollierte Bytes: **128.964 GiB** (einschließlich HTML und Katalogen, ohne unvollständige Torrent-Dateien).
+Erfolgreich protokollierte Bytes: **129.538 GiB** (einschließlich HTML und Katalogen, ohne unvollständige Torrent-Dateien).
 
 | Quelle | successful | failed | partial | Davon Binärdokumente / Pakete |
 | --- | ---: | ---: | ---: | ---: |
@@ -15,7 +15,7 @@ Erfolgreich protokollierte Bytes: **128.964 GiB** (einschließlich HTML und Kata
 | freezone-de | 60 | 0 | 0 | 5 |
 | freezone-org | 82 | 0 | 0 | 4 |
 | galac-patra | 112 | 1 | 2 | 88 |
-| lrhmaterials | 12500 | 6 | 0 | 10268 |
+| lrhmaterials | 12504 | 6 | 0 | 10272 |
 | project-avalon | 112 | 0 | 0 | 111 |
 | ronsorg | 47 | 0 | 0 | 23 |
 | saentowiki | 5431 | 57 | 0 | 0 |
@@ -61,7 +61,7 @@ Prüfsummen, Abrufzeiten, Dateigrößen und Herkunftslinks stehen vollständig i
 
 ## Laufstatus
 
-Status: **running**. Aktualisiert: 2026-11-07T19:22:58.223254+00:00.
+Status: **running**. Aktualisiert: 2026-11-07T19:23:28.618227+00:00.
 - LRHmaterials-und-Ergaenzungen: running
 - Drive-Gesamtinventar: exited
 
@@ -1633,6 +1633,10 @@ Diese Liste dokumentiert die ursprüngliche HTML-Grenze. Erfolgreich paginierte 
 | successful | document | en | [materials.php](../raw-data/lrhmaterials/materials__4efe3c9e33.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCelebrity++Magazine%2F&download=Celebrity+263+%E2%80%94+93XXXX.pdf) |  |
 | successful | document | en | [materials.php](../raw-data/lrhmaterials/materials__7cfd1ed58a.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCelebrity++Magazine%2F&download=Celebrity+264+%E2%80%94+93XXXX.pdf) |  |
 | successful | document | en | [materials.php](../raw-data/lrhmaterials/materials__9cc8772bb4.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCelebrity++Magazine%2F&download=Celebrity+265+%E2%80%94+93XXXX.pdf) |  |
+| successful | document | en | [materials.php](../raw-data/lrhmaterials/materials__100c3afc92.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCelebrity++Magazine%2F&download=Celebrity+266+%E2%80%94+93XXXX.pdf) |  |
+| successful | document | en | [materials.php](../raw-data/lrhmaterials/materials__07b0d1698a.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCelebrity++Magazine%2F&download=Celebrity+267+%E2%80%94+93XXXX.pdf) |  |
+| successful | document | en | [materials.php](../raw-data/lrhmaterials/materials__8a6f06ca2a.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCelebrity++Magazine%2F&download=Celebrity+269+%E2%80%94+93XXXX.pdf) |  |
+| successful | document | en | [materials.php](../raw-data/lrhmaterials/materials__f180c7b5bf.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCelebrity++Magazine%2F&download=Celebrity+270+%E2%80%94+93XXXX.pdf) |  |
 | successful | html | en | [materials.php](../raw-data/lrhmaterials/materials__8aa3e5c2af.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FCenter+Magazine%2F) |  |
 | successful | html | en | [materials.php](../raw-data/lrhmaterials/materials__354ad98c03.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FClear+News+Magazine%2F) |  |
 | successful | html | en | [materials.php](../raw-data/lrhmaterials/materials__9352995f26.php) | [URL](https://www.lrhmaterials.com/materials.php?dir=00_2TB_New_Collection_Audios-Videos-PDFs_and_Docs%2FKSW-LRH-Digital-Library%2FPeriodicals%2FFSM+Newsletter%2F) |  |
