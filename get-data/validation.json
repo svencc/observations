@@ -1,16 +1,20 @@
 {
-  "checked_files": 12651,
+  "checked_files": 91731,
   "kinds": {
-    "document": 4650,
-    "html": 6114,
+    "document": 81329,
+    "html": 8522,
     "catalog": 1717,
     "ancillary_image": 118,
-    "ancillary_media": 52
+    "ancillary_media": 45
   },
   "issues": [
     {
       "path": "raw-data/lrhmaterials/materials__729b341fa1.php",
       "issue": "'utf-8' codec can't decode byte 0x9b in position 1: invalid start byte"
+    },
+    {
+      "path": "raw-data/lrhmaterials/materials__5113a28bc5.php",
+      "issue": "Bad ZIP member Solo\\.DS_Store"
     }
   ]
 }

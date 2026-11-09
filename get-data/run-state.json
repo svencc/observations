@@ -1,0 +1,22 @@
+{
+  "state": "finished_with_incomplete_queue",
+  "updated_at": "2026-11-09T02:21:29.655218+00:00",
+  "supervisor_pid": 81505,
+  "tasks": [
+    {
+      "name": "LRHmaterials-und-Ergaenzungen",
+      "pid": 81504,
+      "state": "exited"
+    }
+  ],
+  "drive_coverage": {
+    "inventoried_files": 20436,
+    "files_attempted": 990,
+    "not_yet_attempted": 19446
+  },
+  "verification_exit_codes": {
+    "torrent_recheck": 0,
+    "local_validation": 0
+  },
+  "note": "All supervised processes have ended. Consult downloaded.md for successful, failed and partial results; this is not a claim of a complete collected edition."
+}

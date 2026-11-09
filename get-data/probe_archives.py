@@ -42,7 +42,7 @@ if __name__=='__main__':
              ('lrhmaterials','https://lrhmaterials.com/')]
     with cf.ThreadPoolExecutor(max_workers=6) as pool:
         results=list(pool.map(probe,jobs))
-    (ROOT/'get-date/archive-probes.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+    (ROOT/'get-data/archive-probes.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
     for r in results:
         print(json.dumps({k:v for k,v in r.items() if k!='hints'},ensure_ascii=False),flush=True)
     for url in ['https://galac-patra.ru/library-english.zip','https://galac-patra.ru/library-non-eglish.zip','https://galac-patra.ru/CBR_complete_library.zip']:

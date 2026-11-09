@@ -2,6 +2,8 @@
 
 Hier stehen nur Zugangsvoraussetzungen und offene Fragen, keine Passwörter, Codes oder Cookies. Technische Abruffehler und Einzelstatus stehen in [downloaded.md](downloaded.md).
 
+**Endstand des bisherigen Rechners:** Der öffentliche Downloadlauf wurde am 07.11.2026 wegen der 20-GiB-Speicherreserve angehalten. Fortsetzung auf größerem externen Speicher / anderem Rechner ist vom Nutzer vorgesehen. Maßgeblich dafür: `raw-data/ÜBERGABE.MD` und der Dokumentationssnapshot unter `raw-data/_handover/`. Der Speicherstopp erfordert keine Zugangsdaten.
+
 ## Tatsächlich privater Zugang erforderlich
 
 | Quelle | Was fehlt | Vorgehen |
@@ -28,4 +30,4 @@ Hier stehen nur Zugangsvoraussetzungen und offene Fragen, keine Passwörter, Cod
 - Galac-Patra / Timecops: `timecops@mail.ru` — aktive EN-/DE-Spiegel oder Seeds.
 - Historische Excal-Kontaktadresse aus goal1.md: `Independent_scientologist@hotmail.com` — unbestätigte Altspur; keine Anfrage verschickt.
 
-Es wurden keine Nachrichten versandt, Registrierungen durchgeführt oder privaten Zugangsdaten gesucht. Öffentliche Downloads laufen unabhängig von diesen offenen Punkten weiter.
+Es wurden keine Nachrichten versandt, Registrierungen durchgeführt oder privaten Zugangsdaten gesucht. Die öffentlichen Downloads wurden bis zum Speicherstopp unabhängig von diesen Zugangsthemen ausgeführt und sind jetzt angehalten.

@@ -17,7 +17,7 @@ import requests
 from inspect_sources import Links, ROOT, SOURCES
 
 RAW = ROOT / 'raw-data'
-LEDGER = ROOT / 'get-date' / 'download-manifest.jsonl'
+LEDGER = ROOT / 'get-data' / 'download-manifest.jsonl'
 LOCK = threading.Lock()
 LIMITS = {}
 DOC = ('.pdf', '.doc', '.docx', '.txt', '.djvu', '.djv', '.rtf', '.epub', '.zip', '.torrent')
@@ -90,7 +90,7 @@ def fetch(job):
                         row['kind'] = 'catalog' if source=='saentowiki' and '/contents/' in url else 'html'
                     else: row['kind'] = 'document'
                     part.replace(path)
-                    row.update(status='successful', local_path=str(path.relative_to(ROOT)), bytes=size, sha256=h.hexdigest(), original_filename=unquote(urlsplit(url).path.rsplit('/',1)[-1]))
+                    row.update(status='successful', local_path=str(path.relative_to(ROOT)), bytes=size, sha256=h.hexdigest(), original_filename=target_name or unquote(urlsplit(url).path.rsplit('/',1)[-1]))
                     row.pop('error', None)
                     break
             except Exception as e:
@@ -119,9 +119,9 @@ def seed_jobs():
         jobs.append((source, SOURCES[source], SOURCES[source], 'de' if source=='freezone-de' else 'en', 0))
         jobs.extend((source,u,SOURCES[source],'de' if source=='freezone-de' else 'en',0) for u in urls)
     # Explicit old links are attempted too; they may no longer be in today's catalog.
-    plan = (ROOT/'get-date/plan1.md').read_text()
+    plan = (ROOT/'get-data/plan1.md').read_text()
     for u in re.findall(r'https://stss\.nl/[^\s>]+\.pdf', plan):
-        jobs.append(('stss',u,'get-date/plan1.md','de' if '/Deutsch/' in u else 'en',0))
+        jobs.append(('stss',u,'get-data/plan1.md','de' if '/Deutsch/' in u else 'en',0))
     return jobs
 
 def main():

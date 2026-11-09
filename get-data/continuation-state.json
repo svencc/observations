@@ -1,0 +1,9 @@
+{
+  "phase": "finished",
+  "updated_at": "2026-11-09T02:21:33.655256+00:00",
+  "workflow_pid": 40519,
+  "free_bytes": 1435389476864,
+  "supervisor_exit_code": 0,
+  "download_exit_code": 0,
+  "note": "See run-state.json and downloaded.md for coverage and validation; open sources remain."
+}

@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-11-09T07:58:13.451354+00:00",
+  "method": "Saved inventory and validated manifest only; no new downloads, rehashing, extraction or content comparison.",
+  "drive_inventory": 20436,
+  "drive_downloaded": 458,
+  "drive_missing": 19978,
+  "missing_drive_classifications": {
+    "no_filename_match": 16421,
+    "normalized_filename": 3385,
+    "ocr_variant_filename": 172
+  },
+  "missing_drive_prior_statuses": {
+    "failed": 532,
+    "unattempted": 19446
+  },
+  "calibration_on_downloaded_drive": {
+    "filename_candidates": 50,
+    "filename_but_no_identical_hash": 50,
+    "byte_identical_copy_elsewhere": 1
+  },
+  "lrh_missing": 66,
+  "missing_lrh_classifications": {
+    "no_filename_match": 59,
+    "normalized_filename": 7
+  },
+  "limitations": [
+    "Missing Drive inventories provide no checksum or byte size.",
+    "Matching filenames, even without OCR suffix, do not prove identical contents or editions.",
+    "No filename match does not establish that the work is absent; archives and different names are not resolved.",
+    "The downloaded Drive subset is not a random sample; do not extrapolate its overlap percentage.",
+    "No complete bibliography is available to prove a complete LRH/CBR collected edition."
+  ]
+}

@@ -1,4 +1,10 @@
 {
+  "lrhmaterials": {
+    "status": "finished",
+    "updated_at": "2026-11-09T02:21:33.655256+00:00",
+    "reason": "Continuation on the larger volume; see continuation-state.json.",
+    "next_step": "Inspect migration-verification.json, run-state.json and downloaded.md."
+  },
   "sptv-drive": {
     "status": "blocked",
     "reason": "Google returned HTTP 403 with an HTML 'Sorry' page after successful anonymous downloads. The Drive transfer process was stopped; the remaining inventory was not falsely marked as downloaded or as individually attempted.",

@@ -9,7 +9,7 @@ from download_sources import ROOT, emit
 
 if __name__=='__main__':
     latest={}
-    for line in (ROOT/'get-date/download-manifest.jsonl').read_text().splitlines():
+    for line in (ROOT/'get-data/download-manifest.jsonl').read_text().splitlines():
         r=json.loads(line)
         if r.get('local_path'):latest[r['local_path']]=r
     issues=[];types=Counter();n=0
@@ -45,5 +45,5 @@ if __name__=='__main__':
         if changed:emit(r)
         types[r.get('kind','unknown')]+=1;n+=1
     result={'checked_files':n,'kinds':dict(types),'issues':issues}
-    (ROOT/'get-date/validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
+    (ROOT/'get-data/validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
     print(json.dumps(result))
