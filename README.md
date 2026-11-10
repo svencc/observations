@@ -2,9 +2,16 @@
 
 Observations sammelt englische und deutsche Materialien von **L. Ron Hubbard (LRH)** und **Captain Bill Robertson (CBR)** aus verschiedenen Onlinearchiven. Originaldateien, gespeicherte Webseiten und Herkunftsnachweise werden lokal nach Bezugsquelle abgelegt.
 
-Die **Datensammlung gilt seit dem 09.11.2026 auf Nutzerwunsch vorerst als abgeschlossen**. Der letzte Lauf einschließlich Abschlussprüfung ist beendet; weitere Downloads werden nicht automatisch gestartet. Inhaltliche Sortierung, OCR, Markdown-Konvertierung, Dublettenbereinigung und eine Suchanwendung sind noch nicht umgesetzt und noch nicht beauftragt.
+Die **Datensammlung gilt seit dem 09.11.2026 auf Nutzerwunsch vorerst als abgeschlossen**. Der letzte Lauf einschließlich Abschlussprüfung ist beendet; weitere Downloads werden nicht automatisch gestartet. Inhaltliche Sortierung, OCR, Markdown-Konvertierung, Dublettenbereinigung und eine Suchanwendung sind noch nicht umgesetzt.
+
+Am **10.11.2026** wurde die Analyse einer lokalen semantischen Suche/RAG-Recherche beauftragt. Der [Architekturvorschlag in search/README.md](search/README.md) bewertet den vorhandenen txtai-Dienst unter `~/apps/knowledge`, SQLite-Alternativen, Textextraktion, Belegstellen und einen Pilotbetrieb. Ein [rein lesender Bash-Client](search/knowledge-query.sh) demonstriert die bestehende knowledge-API. Ein Observations-Suchindex wurde noch nicht aufgebaut; eine Verarbeitung des Gesamtbestands wurde nicht gestartet.
 
 ## Einstieg und aktueller Stand
+
+Die nächste Phase ist in zwei zunächst konzeptionelle Teilprojekte gegliedert:
+
+- [0-search-engine/GOAL.MD](1-search-engine/GOAL.MD): lokale semantische Suchdatenbank und Recherche-API für die KI.
+- [1-prepare-data/GOAL.MD](2-prepare-data/GOAL.MD): Texte, Struktur und Metadaten erschließen; beschreibende Markdown-Dateien beziehungsweise Volltext-Markdown mit Header prüfen, insbesondere für LRH-Letters.
 
 Der festgehaltene Abschlussstand steht in [get-data/STATUS.md](get-data/STATUS.md), die Vorgaben für weitere Agenten in [AGENTS.md](AGENTS.md). Der Abschluss ist eine Entscheidung über die Projektphase, kein Nachweis einer bibliografisch vollständigen LRH-/CBR-Sammlung.
 

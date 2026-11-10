@@ -6,7 +6,7 @@ from probe_drive_media import client_key
 from download_sources import ROOT
 
 if __name__=='__main__':
-    key=client_key();rows=[json.loads(l) for l in (ROOT/'get-data/download-manifest.jsonl').read_text().splitlines()]
+    key=client_key();rows=[json.loads(l) for l in (ROOT/'0-get-data/download-manifest.jsonl').read_text().splitlines()]
     row=next(r for r in reversed(rows) if r.get('download_method')=='anonymous Drive API' and r['status']=='failed' and r.get('original_filename','').lower().endswith('.pdf'))
     fid=row['source_url'].split('/d/')[1].split('/')[0]
     for value in [None,'bytes=0-1023','bytes=0-']:

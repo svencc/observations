@@ -206,7 +206,7 @@ Es liegen keine Zugangsdaten vor. Passwörter, E-Mail-Codes, Cookies und Tokens 
 
 ## 3. Ablage: nach Quelle, ohne spätere Sortierung vorwegzunehmen
 
-Alle Pfade relativ zur Projektwurzel. Der Plan bleibt unter `get-data/plan1.md`. Vorgesehene Ablage:
+Alle Pfade relativ zur Projektwurzel. Der Plan bleibt unter `0-get-data/plan1.md`. Vorgesehene Ablage:
 
 ```text
 raw-data/

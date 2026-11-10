@@ -19,7 +19,7 @@ FIELDS='nextPageToken,files(id,name,mimeType,size)'
 def params(fid):return {'q':"'"+fid+"' in parents and trashed=false",'pageSize':1000,'fields':FIELDS}
 
 if __name__=='__main__':
-    issues=json.loads((ROOT/'get-data/drive-issues.json').read_text())
+    issues=json.loads((ROOT/'0-get-data/drive-issues.json').read_text())
     initial=[r['url'] for r in issues if '50 entries' in r['issue']]
     fid=initial[0].rsplit('/',1)[-1]
     html=(RAW/'sptv-drive/_provenance/catalog'/('folder-'+fid+'.html')).read_text()
@@ -64,7 +64,7 @@ if __name__=='__main__':
                 except Exception as e:failures.append({'url':url,'issue':type(e).__name__+': '+str(e).split('?')[0]})
             print(json.dumps({'paginated_folders':len(resolved),'extra_files':len(extra),'remaining_folders':len(queue)}),flush=True)
     (RAW/'sptv-drive/_provenance/extra-drive-inventory.json').write_text(json.dumps(list(extra.values()),ensure_ascii=False,indent=2))
-    (ROOT/'get-data/drive-pagination-result.json').write_text(json.dumps({'resolved':resolved,'failed':failures,'extra_files':len(extra),'reported_extra_bytes':size},ensure_ascii=False,indent=2))
+    (ROOT/'0-get-data/drive-pagination-result.json').write_text(json.dumps({'resolved':resolved,'failed':failures,'extra_files':len(extra),'reported_extra_bytes':size},ensure_ascii=False,indent=2))
     with cf.ThreadPoolExecutor(max_workers=5) as pool:
         for i,row in enumerate(pool.map(drive_file,extra.values()),1):
             if i%50==0:print(json.dumps({'extra_files_attempted':i,'last_status':row['status']}),flush=True)

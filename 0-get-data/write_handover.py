@@ -27,7 +27,7 @@ def atomic(path,text):
     tmp=path.with_name(path.name+'.tmp');tmp.write_text(text);tmp.replace(path)
 
 def records():
-    data=(ROOT/'get-data/download-manifest.jsonl').read_bytes()
+    data=(ROOT/'0-get-data/download-manifest.jsonl').read_bytes()
     if not data.endswith(b'\n'):data=data.rsplit(b'\n',1)[0]+b'\n'
     return [json.loads(line) for line in data.splitlines() if line.strip()]
 
@@ -39,7 +39,7 @@ def snapshot(final=False):
         else:key=(r['source_id'],r['source_url'])
         latest[key]=r
         if r.get('local_path'):by_path[r['local_path']]=r
-    state=json.loads((ROOT/'get-data/run-state.json').read_text())
+    state=json.loads((ROOT/'0-get-data/run-state.json').read_text())
     partials=[]
     prior_file=BUNDLE/'partial-http-files.json'
     prior={(r['local_path'],r['bytes_on_disk']):r for r in json.loads(prior_file.read_text())} if prior_file.exists() else {}
@@ -102,11 +102,11 @@ def snapshot(final=False):
             if existing.get('status')=='partial' and existing.get('local_path')==item['local_path']:continue
             row=dict(source_id='lrhmaterials',source_url=target['source_url'],discovered_on=target['discovered_on'],language='unknown',retrieved_at=datetime.now(timezone.utc).isoformat(),status='partial',kind='document',local_path=item['local_path'],bytes=item['bytes_on_disk'],error='Interrupted by disk-space stop; .part retained; HTTP request must be restarted',url_recovery='unique SHA-256 URL-prefix match against saved catalogs')
             line=json.dumps(row,ensure_ascii=False)+'\n'
-            for ledger in [ROOT/'get-data/download-manifest.jsonl',RAW/'lrhmaterials/_provenance/manifest.jsonl']:
+            for ledger in [ROOT/'0-get-data/download-manifest.jsonl',RAW/'lrhmaterials/_provenance/manifest.jsonl']:
                 with ledger.open('a') as f:f.write(line)
             latest[('lrhmaterials',row['source_url'])]=row;added+=1
         atomic(BUNDLE/'partial-http-files.json',json.dumps(partials,ensure_ascii=False,indent=2))
-        if added:subprocess.run([sys.executable,str(ROOT/'get-data/write_download_report.py')],cwd=ROOT,check=True)
+        if added:subprocess.run([sys.executable,str(ROOT/'0-get-data/write_download_report.py')],cwd=ROOT,check=True)
     sources=collections.defaultdict(list)
     for r in latest.values():sources[r['source_id']].append(r)
     total=sum(r.get('bytes',0) for r in latest.values() if r['status']=='successful')
@@ -129,7 +129,7 @@ def snapshot(final=False):
         lines.append(f"| {source} | {c['successful']} | {c['failed']} | {c['partial']} | {sum(r['status']=='successful' and r.get('kind')=='document' for r in rs)} |")
     lines += ['', '## Unbedingt mit umziehen', '',
       'Den gesamten Ordner `raw-data/` kopieren, einschließlich aller versteckten/mit Unterstrich beginnenden Provenienz- und Übergabeordner, `.part`-Dateien, Torrent-Metadaten und Teilbestände. Nicht nur PDFs kopieren. `raw-data/` ist in Git ignoriert und reist **nicht** automatisch mit einem Git-Clone mit.', '',
-      'Zusätzlich den Projektordner `get-data/` mitnehmen. Für den Fall, dass ausschließlich `raw-data/` übertragen wird, liegt dessen vollständiger Dokumentations-/Skriptstand auch unter `_handover/get-data/` in diesem Rohdatenordner. Das enthält insbesondere:', '',
+      'Zusätzlich den Projektordner `0-get-data/` mitnehmen. Für den Fall, dass ausschließlich `raw-data/` übertragen wird, liegt dessen vollständiger Dokumentations-/Skriptstand auch unter `_handover/0-get-data/` in diesem Rohdatenordner. Das enthält insbesondere:', '',
       '- `download-manifest.jsonl`: Masterprotokoll mit relativen Dateipfaden, Originalnamen, Quell-URLs, Abrufzeiten, Größen und SHA-256. Nicht löschen oder durch ein leeres Protokoll ersetzen.',
       '- `downloaded.md`: lesbares Ergebnisprotokoll; `privat-data.md`: Logins und offene Nachprüfungen.',
       '- `plan1.md`, `goal1.md`, `run-state.json`, `manual-blockers.json`, Validierungs- und Drive-Inventarberichte sowie die tatsächlich verwendeten Python-Skripte.',
@@ -137,16 +137,16 @@ def snapshot(final=False):
       '- `_handover/partial-http-files.json`: Liste unterbrochener HTTP-Dateien. Die zugehörige URL ist nicht in jedem Fall eindeutig rekonstruierbar; nicht aus Dateinamen erraten.',
       '- `_handover/pending-lrhmaterials.jsonl`: nach Abschluss aus gespeicherten Katalogen rekonstruierte, deduplizierte offene Links. Neue Verzeichnisse können weitere Links liefern; keine abschließende Gesamtliste aller Werke.', '',
       '## Verzeichnisstruktur auf dem neuen Rechner', '',
-      '```text\nObservations/\n  get-data/                  # Originalordner oder Kopie aus raw-data/_handover/get-data/\n  raw-data/\n    ÜBERGABE.MD\n    _handover/\n    stss/\n    lrhmaterials/\n    freezone-de/\n    freezone-org/\n    sptv-drive/\n    ...\n```', '',
-      'Die Skripte bestimmen die Projektwurzel relativ zu ihrem Speicherort. Deshalb `get-data/` und `raw-data/` als Geschwister erhalten. Alte absolute Pfade in historischen Notizen und alte Prozess-IDs gelten nur für den bisherigen Mac. **Diese PIDs auf dem neuen Rechner niemals übernehmen oder zum Beenden von Prozessen verwenden.**', '',
+      '```text\nObservations/\n  0-get-data/                  # Originalordner oder Kopie aus raw-data/_handover/0-get-data/\n  raw-data/\n    ÜBERGABE.MD\n    _handover/\n    stss/\n    lrhmaterials/\n    freezone-de/\n    freezone-org/\n    sptv-drive/\n    ...\n```', '',
+      'Die Skripte bestimmen die Projektwurzel relativ zu ihrem Speicherort. Deshalb `0-get-data/` und `raw-data/` als Geschwister erhalten. Alte absolute Pfade in historischen Notizen und alte Prozess-IDs gelten nur für den bisherigen Mac. **Diese PIDs auf dem neuen Rechner niemals übernehmen oder zum Beenden von Prozessen verwenden.**', '',
       '## Fortsetzung auf dem anderen Rechner', '',
       '1. Erst den finalen Übergabestand abwarten und dann kopieren. Bei vorherigem Kopieren anschließend einen zweiten Abgleich durchführen: laufende Downloads können Dateien und Protokolle noch verändern.',
-      '2. Kopierte Dateien anhand `_handover/copy-verification.jsonl` prüfen. Dafür kann aus der wiederhergestellten Projektwurzel `python3 get-data/verify_migrated_copy.py` verwendet werden. Prüfsummen beziehen sich auf erfolgreiche Dateien; unvollständige Torrent-/HTTP-Dateien sind separat gekennzeichnet. Eine Größenprüfung allein ersetzt die SHA-256-Prüfung beim Umzug nicht.',
+      '2. Kopierte Dateien anhand `_handover/copy-verification.jsonl` prüfen. Dafür kann aus der wiederhergestellten Projektwurzel `python3 0-get-data/verify_migrated_copy.py` verwendet werden. Prüfsummen beziehen sich auf erfolgreiche Dateien; unvollständige Torrent-/HTTP-Dateien sind separat gekennzeichnet. Eine Größenprüfung allein ersetzt die SHA-256-Prüfung beim Umzug nicht.',
       '3. Python 3.9 oder neuer und `requests` installieren, vorzugsweise in einer neuen virtuellen Umgebung. Beispiel für macOS/Linux aus der Projektwurzel:', '',
-      '```sh\npython3 -m venv .venv\n.venv/bin/python -m pip install requests\n.venv/bin/python get-data/extra_sources.py\n```', '',
+      '```sh\npython3 -m venv .venv\n.venv/bin/python -m pip install requests\n.venv/bin/python 0-get-data/extra_sources.py\n```', '',
       'Unter Windows entsprechend `.venv\\Scripts\\python.exe` verwenden. `extra_sources.py` ist der Fortsetzungsweg für LRHmaterials und die Zusatzquellen. Es spielt vorhandene Kataloge erneut durch, verwendet das Masterprotokoll und überspringt erfolgreiche Dateien mit passender Größe. Abgebrochene HTTP-Downloads werden neu geladen, nicht byteweise fortgesetzt. Die frühere In-Memory-Warteschlange ist nicht direkt gespeichert; sie lässt sich aus Katalogen/Protokoll neu aufbauen.', '',
       '4. Beim Neustart eine eigene neue Prozess-ID ermitteln und gegebenenfalls `supervise_downloads.py --detach NAME=NEUE_PID` starten. Dessen bisherige Prozessprüfung nutzt `ps` und ist für macOS/Linux ausgelegt; unter Windows anpassen oder einen passenden Prozesswächter verwenden. Die 20-GiB-Reserve überwacht das Dateisystem der Projektwurzel. **Für das externe Laufwerk daher die gesamte Arbeitswurzel auf das externe Laufwerk legen**, nicht lediglich `raw-data/` dorthin verlinken.',
-      '5. Berichte bei Bedarf mit `python get-data/write_download_report.py` erneuern. Für die reine LRHmaterials-Fortsetzung sind `gdown` und `libtorrent` nicht nötig. Optional für Drive/Torrents: `gdown==5.2.2`, `libtorrent==2.1.1` in einer zum neuen System passenden Installation. Das bisherige `/tmp/observations-download-deps` wird nicht vorausgesetzt; regulär installierte Module können über den normalen Python-Pfad geladen werden.', '',
+      '5. Berichte bei Bedarf mit `python 0-get-data/write_download_report.py` erneuern. Für die reine LRHmaterials-Fortsetzung sind `gdown` und `libtorrent` nicht nötig. Optional für Drive/Torrents: `gdown==5.2.2`, `libtorrent==2.1.1` in einer zum neuen System passenden Installation. Das bisherige `/tmp/observations-download-deps` wird nicht vorausgesetzt; regulär installierte Module können über den normalen Python-Pfad geladen werden.', '',
       '## Offene Quellen und bekannte Stolperstellen', '',
       '- **Google Drive / SPTV:** 20.436 Dateiverweise inventarisiert; 458 Dateien erfolgreich, 532 fehlgeschlagen, 19.446 noch nicht versucht. Der Lauf wurde nach Googles HTTP-403-„Sorry“-Sperrseite beendet. Nicht blind weiterbeschießen. Nach Wartezeit im Browser prüfen; es ist keine allgemeine Loginpflicht bestätigt. Beide Inventare unter `sptv-drive/_provenance/` erhalten. Die 50-Einträge-Grenze der öffentlichen HTML-Listen wurde mittels anonymer API-Paginierung gelöst.',
       '- **Sciento.org:** E-Mail-Code-Login nötig; es wurden keine Codes angefordert, Konten angelegt oder privaten Sitzungen gespeichert. Öffentliche Bibliothek noch nicht vollständig inventarisiert.',
@@ -159,15 +159,15 @@ def snapshot(final=False):
       '- **Validierung:** Transport-SHA-256, Dateigrößen und PDF-Signaturen protokolliert. ZIP-Prüfung kann lange dauern. Beim LRH-Fotoarchiv wurde eine UTF-8-Dateinamenwarnung festgestellt; siehe `validation.json`. Keine pauschale Behauptung einer vollständigen inhaltlichen oder bibliografischen Prüfung.',
       '- **Keine Kommunikation versandt:** Betreiberkontakte stehen in `privat-data.md`; keine E-Mails, Freigabeanfragen, Registrierungen oder Käufe vorgenommen. Keine privaten Passwörter/Codes in die Übergabe schreiben.', '',
       '## Abschluss- und Kontrollartefakte', '',
-      'Der finale Snapshot unter `_handover/get-data/` enthält die tatsächlichen Exit-/Validierungsstände. `_provenance/supervisor.log` und `_handover/abschluss.log` dokumentieren den Abschluss. Fehlgeschlagene oder ausstehende Quellen bleiben ausdrücklich offen. Die ursprüngliche Gesamtsumme ist wegen noch unerschlossener Verzeichnisse und Dubletten nicht abschließend bekannt.', '']
-    validation=ROOT/'get-data/validation.json'
+      'Der finale Snapshot unter `_handover/0-get-data/` enthält die tatsächlichen Exit-/Validierungsstände. `_provenance/supervisor.log` und `_handover/abschluss.log` dokumentieren den Abschluss. Fehlgeschlagene oder ausstehende Quellen bleiben ausdrücklich offen. Die ursprüngliche Gesamtsumme ist wegen noch unerschlossener Verzeichnisse und Dubletten nicht abschließend bekannt.', '']
+    validation=ROOT/'0-get-data/validation.json'
     if validation.exists():
         result=json.loads(validation.read_text())
         lines += ['## Konkrete Hinweise der Abschlussprüfung', '',f"Geprüfte Dateien: {result.get('checked_files',0)}. Hinweise: {len(result.get('issues',[]))}. Ungültige PDF-Antworten sind im Masterprotokoll als `failed` markiert; Originalantworten bleiben zur Nachprüfung erhalten. ZIP-Warnungen bedeuten, dass nicht pauschal von einem fehlerfrei entpackbaren Archiv ausgegangen werden darf.", '']
         for issue in result.get('issues',[]):lines.append(f"- `{issue['path']}`: {issue['issue']}")
     atomic(RAW/'ÜBERGABE.MD','\n'.join(lines))
-    target=BUNDLE/'get-data';target.mkdir(parents=True,exist_ok=True)
-    for p in (ROOT/'get-data').iterdir():
+    target=BUNDLE/'0-get-data';target.mkdir(parents=True,exist_ok=True)
+    for p in (ROOT/'0-get-data').iterdir():
         if p.is_file() and p.suffix in ('.md','.MD','.json','.jsonl','.py','.txt'):
             shutil.copy2(p,target/p.name)
     bundle_checks=[]
@@ -183,7 +183,7 @@ def snapshot(final=False):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--watch',action='store_true');parser.add_argument('--detach',action='store_true');parser.add_argument('--final',action='store_true');args=parser.parse_args()
     if args.final:
-        state=json.loads((ROOT/'get-data/run-state.json').read_text())
+        state=json.loads((ROOT/'0-get-data/run-state.json').read_text())
         if state.get('state') in ('running','finalizing'):raise SystemExit('Final snapshot requires a finished supervisor state')
         snapshot(final=True);return
     if args.detach:
@@ -194,7 +194,7 @@ def main():
     snapshot(final=False)
     if args.watch:
         while True:
-            state=json.loads((ROOT/'get-data/run-state.json').read_text())
+            state=json.loads((ROOT/'0-get-data/run-state.json').read_text())
             if state.get('state') not in ('running','finalizing'):break
             time.sleep(15)
         # The supervisor has finished validation/report generation before this copy.

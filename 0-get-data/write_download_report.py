@@ -10,7 +10,7 @@ def esc(s):return str(s or '').replace('|','\\|').replace('\n',' ')
 
 def main():
     records=[]
-    p=ROOT/'get-data/download-manifest.jsonl'
+    p=ROOT/'0-get-data/download-manifest.jsonl'
     if p.exists():records=[json.loads(l) for l in p.read_text().splitlines() if l.strip()]
     latest={}
     for r in records:
@@ -43,36 +43,36 @@ def main():
         'Prüfsummen, Abrufzeiten, Dateigrößen und Herkunftslinks stehen vollständig in [download-manifest.jsonl](download-manifest.jsonl), zusätzlich je Quelle unter `raw-data/<quelle>/_provenance/manifest.jsonl`. Rohdaten sind von Git ausgeschlossen.', '',
         '## Zugriffstests der weiteren Quellen', '',
         '| Quelle / URL | Ergebnis | Hinweis |','| --- | --- | --- |']
-    probe=ROOT/'get-data/archive-probes.json'
+    probe=ROOT/'0-get-data/archive-probes.json'
     if probe.exists():
         for r in json.loads(probe.read_text()):
             status=r.get('http_status');hint=r.get('error') or ('; '.join(r.get('title',[])))
             if r['source']=='sciento':hint='Loginseite erreichbar; Bibliotheksdownload benötigt E-Mail-Code.'
             outcome='successful (Seite)' if status==200 else 'failed'
             lines.append(f"| [{esc(r['source'])}]({r['url']}) | {outcome}; HTTP {status or '—'} | {esc(hint)} |")
-    state=ROOT/'get-data/run-state.json'
+    state=ROOT/'0-get-data/run-state.json'
     if state.exists():
         obj=json.loads(state.read_text())
         lines += ['', '## Laufstatus', '', f"Status: **{obj.get('state','unknown')}**. Aktualisiert: {obj.get('updated_at','—')}."]
         for task in obj.get('tasks',[]):lines.append(f"- {task.get('name')}: {task.get('state')}")
         coverage=obj.get('drive_coverage')
         if coverage:lines += ['',f"Drive-Inventar: **{coverage['inventoried_files']}** Dateien; **{coverage['files_attempted']}** bereits versucht; **{coverage['not_yet_attempted']}** noch ausstehend. Erfolgreiche und fehlgeschlagene Versuche stehen getrennt in der Quellentabelle."]
-    pagination=ROOT/'get-data/drive-pagination-result.json'
+    pagination=ROOT/'0-get-data/drive-pagination-result.json'
     if pagination.exists():
         obj=json.loads(pagination.read_text())
         lines += ['',f"Drive-Paginierung: **{len(obj.get('resolved',[]))}** Ordner vollständig aufgelistet; **{obj.get('extra_files',0)}** zusätzliche Dateiverweise; **{len(obj.get('failed',[]))}** Listenfehler."]
-    blockers=ROOT/'get-data/manual-blockers.json'
+    blockers=ROOT/'0-get-data/manual-blockers.json'
     if blockers.exists():
         lines += ['', '## Blockierte Quellen / ausstehende Dateien', '']
         for source,item in json.loads(blockers.read_text()).items():
             lines.append(f"- **{source}: {item['status']}** — {item['reason']} {item['next_step']}")
-    validation=ROOT/'get-data/validation.json'
+    validation=ROOT/'0-get-data/validation.json'
     if validation.exists():
         obj=json.loads(validation.read_text())
         lines += ['',f"Letzte lokale Prüfung: **{obj.get('checked_files',0)}** Dateien geprüft; **{len(obj.get('issues',[]))}** Hinweise."]
         for item in obj.get('issues',[]):lines.append(f"- `{esc(item.get('path'))}`: {esc(item.get('issue'))}")
     for filename in ['drive-issues.json','cloud-issues.json']:
-        file=ROOT/'get-data'/filename
+        file=ROOT/'0-get-data'/filename
         if file.exists():
             issues=json.loads(file.read_text())
             lines += ['',f'### Hinweise aus {filename}', '']
@@ -86,7 +86,7 @@ def main():
             file=f'[{esc(name)}](../{quote(local,safe="/")})' if local else esc(name)
             url=r['source_url'];label='Magnet' if url.startswith('magnet:') else 'URL'
             lines.append(f"| {r['status']} | {r.get('kind','—')} | {r.get('language','unknown')} | {file} | [{label}]({url}) | {esc(r.get('error'))} |")
-    output=ROOT/'get-data/downloaded.md'
+    output=ROOT/'0-get-data/downloaded.md'
     tmp=output.with_suffix('.md.tmp');tmp.write_text('\n'.join(lines)+'\n');tmp.replace(output)
     private='''# Zugänge und Punkte zur gemeinsamen Nachprüfung
 
@@ -117,7 +117,7 @@ Hier stehen nur Zugangsvoraussetzungen und offene Fragen, keine Passwörter, Cod
 
 Es wurden keine Nachrichten versandt, Registrierungen durchgeführt oder privaten Zugangsdaten gesucht. Öffentliche Downloads laufen unabhängig von diesen offenen Punkten weiter.
 '''
-    private_path=ROOT/'get-data/privat-data.md'
+    private_path=ROOT/'0-get-data/privat-data.md'
     if not private_path.exists():private_path.write_text(private)
     print(json.dumps({'records':len(records),'latest':len(latest),'bytes_successful':total,'sources':{s:dict(Counter(r['status'] for r in rows)) for s,rows in sources.items()}}))
 

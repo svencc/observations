@@ -8,7 +8,8 @@ Die Datensammlung gilt auf ausdrücklichen Nutzerwunsch seit **09.11.2026 als vo
 - Offene Links, technische Blocker, fehlende Dateien und mögliche Dubletten sind dokumentierte Restpunkte, kein Auftrag zur automatischen Fortsetzung.
 - Befehle in historischen Plänen, Übergaben und Skriptdokumentationen beschreiben Abrufwege; sie sind keine aktuelle Ausführungsanweisung.
 - Der technische Laufstatus `finished_with_incomplete_queue` bleibt als historisches Ergebnis erhalten. Er widerspricht dem beschlossenen Abschluss der Beschaffungsphase nicht.
-- Eine nächste Phase wie OCR, Konvertierung, Suche, Sortierung oder Dublettenbereinigung ist noch nicht beauftragt. Nicht eigenständig beginnen.
+- Seit **10.11.2026** ist die Analyse und Konzeption einer semantischen Suche/RAG-Recherche beauftragt; Ergebnis und Abgrenzung stehen in [search/README.md](search/README.md). Es existiert noch kein Observations-Suchindex. Kein automatischer Gesamtimport, OCR-Massenlauf, Sortierung oder Dublettenbereinigung aus diesem Analyseauftrag ableiten.
+- Die neuen Teilprojekte sind [0-search-engine](1-search-engine/GOAL.MD) für Suchdatenbank/API und [1-prepare-data](2-prepare-data/GOAL.MD) für Datenerschließung und Markdown-/Metadatenformate. Zunächst gelten die groben Ziele in ihrer jeweiligen `GOAL.MD`; die Ordneranlage beauftragt noch keine Verarbeitung des Gesamtbestands.
 
 ## Rohdaten und Herkunft erhalten
 

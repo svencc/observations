@@ -10,7 +10,7 @@ import requests
 from download_sources import ROOT, RAW
 
 if __name__=='__main__':
-    issues=json.loads((ROOT/'get-data/drive-issues.json').read_text())
+    issues=json.loads((ROOT/'0-get-data/drive-issues.json').read_text())
     item=next(r for r in issues if '50 entries' in r['issue'])
     fid=item['url'].rsplit('/',1)[-1]
     html=(RAW/'sptv-drive/_provenance/catalog'/('folder-'+fid+'.html')).read_text()
@@ -25,5 +25,5 @@ if __name__=='__main__':
             if r.status_code==200:
                 (RAW/'sptv-drive/_provenance/pagination-test.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2));break
         except Exception as e:results.append({'error_type':type(e).__name__})
-    (ROOT/'get-data/drive-pagination-probe.json').write_text(json.dumps({'folder_url':item['url'],'results':results},ensure_ascii=False,indent=2))
+    (ROOT/'0-get-data/drive-pagination-probe.json').write_text(json.dumps({'folder_url':item['url'],'results':results},ensure_ascii=False,indent=2))
     print(json.dumps(results))

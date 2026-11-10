@@ -64,7 +64,7 @@ if __name__=='__main__':
     for filename in ('drive-inventory.json','extra-drive-inventory.json'):
         for entry in json.loads((RAW/'sptv-drive/_provenance'/filename).read_text()):inventory[entry[0]]=entry
     previous={}
-    for line in (ROOT/'get-data/download-manifest.jsonl').read_text().splitlines():
+    for line in (ROOT/'0-get-data/download-manifest.jsonl').read_text().splitlines():
         r=json.loads(line)
         if r['source_id']=='sptv-drive' and '/file/d/' in r['source_url']:previous[r['source_url']]=r
     queue=[]

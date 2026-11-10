@@ -61,6 +61,8 @@ Große LRH-Torrents bleiben teilweise unvollständig. Sciento benötigt einen E-
 - [Überschneidungsanalyse](overlap-assessment/README.md), [Zusammenfassung](overlap-assessment/summary.json) und Kandidatenlisten.
 - Rohprotokolle: `raw-data/_provenance/continuation.log`, `extra-sources-continuation.log`, `network-retry.log`; Kataloge und Quellenmanifeste unter den jeweiligen `_provenance/`-Ordnern.
 
-Die alte Übergabe `raw-data/ÜBERGABE.MD`, das Kopierinventar und der Skriptsnapshot unter `raw-data/_handover/` dokumentieren den Stand vom 07.11.2026 und umfassen nicht die gesamte spätere Sammlung. Bei einer später beauftragten Sicherung den vollständigen aktuellen Rohdatenbestand und `get-data/` gemeinsam sichern; Git allein genügt nicht.
+Die alte Übergabe `raw-data/ÜBERGABE.MD`, das Kopierinventar und der Skriptsnapshot unter `raw-data/_handover/` dokumentieren den Stand vom 07.11.2026 und umfassen nicht die gesamte spätere Sammlung. Bei einer später beauftragten Sicherung den vollständigen aktuellen Rohdatenbestand und `0-get-data/` gemeinsam sichern; Git allein genügt nicht.
 
 Am 09.11.2026 wurde auf Nutzerwunsch der Beschaffungsordner in `get-data/` umbenannt, einschließlich der Übergabekopie unter `raw-data/_handover/get-data/`. Pfadreferenzen in Skripten, Dokumentation, Herkunftsmanifesten, Laufprotokollen und IDE-Konfiguration wurden entsprechend korrigiert. Die Dokumentationsprüfsummen der Übergabekopie wurden neu berechnet. Heruntergeladene Originaldateien, ihre Größen und SHA-256 sowie historische Abrufzeiten und Ergebnisse wurden dadurch nicht verändert. Die Beschaffung bleibt abgeschlossen.
+
+Am 10.11.2026 wurde der Projektordner auf Nutzerwunsch von `get-data/` in `0-get-data/` umbenannt. Aktuelle Skript-, Dokumentations- und Git-LFS-Verweise wurden angepasst. Historische Manifeste und die Übergabekopie unter `raw-data/_handover/get-data/` bleiben unverändert; deren alte Pfadangaben beziehen sich auf den damaligen Stand.

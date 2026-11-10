@@ -1,6 +1,6 @@
 """Supervise detached downloads and refresh the requested Markdown logs.
 
-Usage: python3 get-data/supervise_downloads.py --detach NAME=PID ...
+Usage: python3 0-get-data/supervise_downloads.py --detach NAME=PID ...
 The supervisor does not use credentials, request access, or send messages.
 """
 import json
@@ -14,16 +14,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-STATE=ROOT/'get-data/run-state.json'
+STATE=ROOT/'0-get-data/run-state.json'
 
 def alive(pid):
     try:
         cmd=subprocess.check_output(['ps','-p',str(pid),'-o','command='],text=True).strip()
-        return bool(cmd and 'get-data/' in cmd)
+        return bool(cmd and '0-get-data/' in cmd)
     except (subprocess.CalledProcessError,ProcessLookupError):return False
 
 def run_script(name):
-    return subprocess.run([sys.executable,str(ROOT/'get-data'/name)],cwd=ROOT).returncode
+    return subprocess.run([sys.executable,str(ROOT/'0-get-data'/name)],cwd=ROOT).returncode
 
 def drive_coverage():
     ids=set()
@@ -31,7 +31,7 @@ def drive_coverage():
         p=ROOT/'raw-data/sptv-drive/_provenance'/name
         if p.exists():ids.update(row[0] for row in json.loads(p.read_text()))
     attempted=set()
-    for line in (ROOT/'get-data/download-manifest.jsonl').read_text().splitlines():
+    for line in (ROOT/'0-get-data/download-manifest.jsonl').read_text().splitlines():
         r=json.loads(line)
         if r['source_id']=='sptv-drive' and '/file/d/' in r['source_url']:attempted.add(r['source_url'].split('/d/')[1].split('/')[0])
     return {'inventoried_files':len(ids),'files_attempted':len(ids & attempted),'not_yet_attempted':len(ids-attempted)}

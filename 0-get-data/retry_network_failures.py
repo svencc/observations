@@ -20,10 +20,10 @@ def main():
     queue = [r for r in latest.values() if r['source_id'] == 'lrhmaterials'
              and r['status'] == 'failed' and r.get('retrieved_at', '') >= args.since
              and any(m in r.get('error', '') for m in markers)]
-    (ROOT / 'get-data/network-retry-queue.jsonl').write_text(
+    (ROOT / '0-get-data/network-retry-queue.jsonl').write_text(
         ''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in queue))
     counts = dict(successful=0, failed=0)
-    state = ROOT / 'get-data/network-retry-state.json'
+    state = ROOT / '0-get-data/network-retry-state.json'
 
     def report(phase):
         result = dict(phase=phase, updated_at=datetime.now(timezone.utc).isoformat(),

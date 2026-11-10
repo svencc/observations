@@ -43,7 +43,7 @@ if __name__=='__main__':
             if ok('lrhmaterials',u):q.append(('lrhmaterials',u,row['discovered_on'],'en',0))
     q.extend((s,u,u,'en',0) for s,u in SEEDS)
     previous={}
-    ledger=ROOT/'get-data/download-manifest.jsonl'
+    ledger=ROOT/'0-get-data/download-manifest.jsonl'
     if ledger.exists():
         for line in ledger.read_text().splitlines():
             r=json.loads(line);previous[(r['source_id'],r['source_url'])]=r

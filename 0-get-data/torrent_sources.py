@@ -49,13 +49,13 @@ if __name__=='__main__':
                 (out/'torrent-inventory.json').write_text(json.dumps(inventory,ensure_ascii=False,indent=2))
                 (out/'metadata.torrent').write_bytes(lt.bencode(lt.create_torrent(ti).generate()))
             states.append(dict(source=source,url=url,metadata=s.has_metadata,peers=s.num_peers,seeds=s.num_seeds,progress=s.progress,downloaded=s.total_done,error=s.errc.message() if s.errc.value() else None))
-        (ROOT/'get-data/torrent-progress.json').write_text(json.dumps(states,indent=2))
+        (ROOT/'0-get-data/torrent-progress.json').write_text(json.dumps(states,indent=2))
         print(json.dumps(states),flush=True)
         if all(h.status().is_finished for _,_,_,h in jobs):break
         time.sleep(15)
     for source,url,out,h in jobs:
         s=h.status();h.pause()
-        row=dict(source_id=source,source_url=url,discovered_on='get-data/plan1.md',language='mixed',retrieved_at=datetime.now(timezone.utc).isoformat(),status='failed',kind='torrent-payload',bytes=0)
+        row=dict(source_id=source,source_url=url,discovered_on='0-get-data/plan1.md',language='mixed',retrieved_at=datetime.now(timezone.utc).isoformat(),status='failed',kind='torrent-payload',bytes=0)
         if s.is_finished:row['status']='successful'
         elif s.total_done:row['status']='partial'
         row['error']=None if s.is_finished else (f'No torrent metadata/peers within {seconds}-second attempt' if not s.has_metadata else f'Torrent incomplete after {seconds}-second attempt')
@@ -74,5 +74,5 @@ if __name__=='__main__':
             digest=hashlib.sha256()
             with p.open('rb') as f:
                 for chunk in iter(lambda:f.read(1024*1024),b''):digest.update(chunk)
-            emit(dict(source_id=source,source_url=url,discovered_on='get-data/plan1.md',language='mixed',retrieved_at=row['retrieved_at'],status='successful',kind='document',local_path=str(p.relative_to(ROOT)),bytes=p.stat().st_size,sha256=digest.hexdigest()))
+            emit(dict(source_id=source,source_url=url,discovered_on='0-get-data/plan1.md',language='mixed',retrieved_at=row['retrieved_at'],status='successful',kind='document',local_path=str(p.relative_to(ROOT)),bytes=p.stat().st_size,sha256=digest.hexdigest()))
     session.pause()

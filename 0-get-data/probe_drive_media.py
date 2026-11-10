@@ -6,7 +6,7 @@ import requests
 from download_sources import ROOT, RAW
 
 def client_key():
-    issues=json.loads((ROOT/'get-data/drive-issues.json').read_text())
+    issues=json.loads((ROOT/'0-get-data/drive-issues.json').read_text())
     url=next(r['url'] for r in issues if '50 entries' in r['issue']);fid=url.rsplit('/',1)[-1]
     text=(RAW/'sptv-drive/_provenance/catalog'/('folder-'+fid+'.html')).read_text()
     for candidate in set(re.findall(r'AIza[\w-]{25,50}',text)):
@@ -16,7 +16,7 @@ def client_key():
 
 if __name__=='__main__':
     key=client_key();rows=[]
-    for line in (ROOT/'get-data/download-manifest.jsonl').read_text().splitlines():
+    for line in (ROOT/'0-get-data/download-manifest.jsonl').read_text().splitlines():
         r=json.loads(line)
         if r['source_id']=='sptv-drive' and r.get('kind')=='document':rows.append(r)
     picks=[next(r for r in rows if r['status']=='successful'),next(r for r in reversed(rows) if r['status']=='failed')]

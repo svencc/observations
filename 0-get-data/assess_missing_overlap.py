@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'get-data/overlap-assessment'
+OUT = ROOT / '0-get-data/overlap-assessment'
 
 
 def filename(row):
@@ -30,7 +30,7 @@ def key(name, relaxed=False):
 
 def main():
     OUT.mkdir(exist_ok=True)
-    rows = [json.loads(l) for l in (ROOT / 'get-data/download-manifest.jsonl').read_text().splitlines()]
+    rows = [json.loads(l) for l in (ROOT / '0-get-data/download-manifest.jsonl').read_text().splitlines()]
     by_path = {}
     by_url = {}
     for r in rows:

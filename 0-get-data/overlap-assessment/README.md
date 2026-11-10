@@ -28,4 +28,4 @@ Die fehlenden Bestände können derzeit nicht als entbehrliche Kopien eingestuft
 
 Eine vollständige LRH-/CBR-Werksammlung ist ohne eine definierte Sollbibliografie nicht nachweisbar. Vollständigkeit kann sich auf Werke, Ausgaben, Sprachen oder konkrete Scans beziehen; diese Ziele sind nicht gleichbedeutend.
 
-Details: `summary.json`, `missing-drive-candidates.jsonl`, `missing-lrh-candidates.jsonl`. Erneut erzeugen mit `.venv/bin/python get-data/assess_missing_overlap.py`.
+Details: `summary.json`, `missing-drive-candidates.jsonl`, `missing-lrh-candidates.jsonl`. Erneut erzeugen mit `.venv/bin/python 0-get-data/assess_missing_overlap.py`.

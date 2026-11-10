@@ -10,7 +10,7 @@ import sys
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
-STATE = ROOT / 'get-data/continuation-state.json'
+STATE = ROOT / '0-get-data/continuation-state.json'
 LOG = ROOT / 'raw-data/_provenance/continuation.log'
 
 
@@ -21,7 +21,7 @@ def state(phase, **details):
     tmp = STATE.with_suffix('.json.tmp')
     tmp.write_text(json.dumps(payload, indent=2))
     tmp.replace(STATE)
-    blockers_path = ROOT / 'get-data/manual-blockers.json'
+    blockers_path = ROOT / '0-get-data/manual-blockers.json'
     blockers = json.loads(blockers_path.read_text()) if blockers_path.exists() else {}
     blockers['lrhmaterials'] = dict(status=phase, updated_at=payload['updated_at'],
                                     reason='Continuation on the larger volume; see continuation-state.json.',
@@ -51,7 +51,7 @@ def main():
             return 1
         state('verifying_migration')
         with (ROOT / 'raw-data/_handover/migration-verification.log').open('w') as log:
-            code = subprocess.run([sys.executable, str(ROOT / 'get-data/verify_migrated_copy.py')],
+            code = subprocess.run([sys.executable, str(ROOT / '0-get-data/verify_migrated_copy.py')],
                                   cwd=ROOT, stdout=log, stderr=subprocess.STDOUT).returncode
         if code:
             state('blocked_migration_verification', verification_exit_code=code)
@@ -60,10 +60,10 @@ def main():
             state('stopped_low_disk_space')
             return 1
         with (LOG.parent / 'extra-sources-continuation.log').open('a') as log:
-            download = subprocess.Popen([sys.executable, str(ROOT / 'get-data/extra_sources.py')],
+            download = subprocess.Popen([sys.executable, str(ROOT / '0-get-data/extra_sources.py')],
                                         cwd=ROOT, stdout=log, stderr=subprocess.STDOUT)
         state('downloading', download_pid=download.pid)
-        code = subprocess.run([sys.executable, str(ROOT / 'get-data/supervise_downloads.py'),
+        code = subprocess.run([sys.executable, str(ROOT / '0-get-data/supervise_downloads.py'),
                                'LRHmaterials-und-Ergaenzungen=' + str(download.pid)], cwd=ROOT).returncode
         download_code = download.wait()
         state('finished' if not (code or download_code) else 'finished_with_errors',

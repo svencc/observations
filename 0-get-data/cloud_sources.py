@@ -40,7 +40,7 @@ def drive_file(item):
     emit(row);return row
 
 def drives():
-    probes=json.loads((ROOT/'get-data/archive-probes.json').read_text())
+    probes=json.loads((ROOT/'0-get-data/archive-probes.json').read_text())
     q=deque(r['url'] for r in probes if r['source']=='sptv-drive' and r.get('http_status')==200)
     seen=set();files={};issues=[]
     def folder_page(url):
@@ -71,7 +71,7 @@ def drives():
         if len(seen)%30<6:print(json.dumps({'drive_folders':len(seen),'files_discovered':len(files),'remaining_folders':len(q)}),flush=True)
     folder_pool.shutdown()
     (RAW/'sptv-drive/_provenance/drive-inventory.json').write_text(json.dumps(list(files.values()),ensure_ascii=False,indent=2))
-    (ROOT/'get-data/drive-issues.json').write_text(json.dumps(issues,ensure_ascii=False,indent=2))
+    (ROOT/'0-get-data/drive-issues.json').write_text(json.dumps(issues,ensure_ascii=False,indent=2))
     with cf.ThreadPoolExecutor(max_workers=8) as pool:
         for i,row in enumerate(pool.map(drive_file,files.values()),1):
             if i%25==0:print(json.dumps({'drive_files_attempted':i,'last_status':row['status']}),flush=True)
@@ -116,7 +116,7 @@ def cloud():
         row,_=fetch(('galac-patra',href,public,'mixed',0))
         if row['status']!='successful':issues.append({'url':public,'issue':row.get('error')})
     except Exception as e:issues.append({'url':public,'issue':str(e)})
-    (ROOT/'get-data/cloud-issues.json').write_text(json.dumps(issues,ensure_ascii=False,indent=2))
+    (ROOT/'0-get-data/cloud-issues.json').write_text(json.dumps(issues,ensure_ascii=False,indent=2))
 
 if __name__=='__main__':
     if '--drive-only' in sys.argv:drives()
